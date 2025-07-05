@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tfmodel-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tfmodel
+  template:
+    metadata:
+      labels:
+        app: tfmodel
+    spec:
+      containers:
+      - name: tfmodel-container
+        image: tfmodel:latest
+        ports:
+        - containerPort: 8501
+
